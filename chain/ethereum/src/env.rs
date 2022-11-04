@@ -23,7 +23,7 @@ pub struct EnvVars {
     /// by `;`.
     pub geth_eth_call_errors: Vec<String>,
     /// Set by the environment variable `GRAPH_ETH_GET_LOGS_MAX_CONTRACTS`. The
-    /// default value is 2000.
+    /// default value is 1000.
     pub get_logs_max_contracts: usize,
 
     /// Set by the environment variable `ETHEREUM_REORG_THRESHOLD`. The default
@@ -45,7 +45,7 @@ pub struct EnvVars {
     /// Maximum number of blocks to request in each chunk.
     ///
     /// Set by the environment variable `GRAPH_ETHEREUM_MAX_BLOCK_RANGE_SIZE`.
-    /// The default value is 2000 blocks.
+    /// The default value is 1000 blocks.
     pub max_block_range_size: BlockNumber,
     /// This should not be too large that it causes requests to timeout without
     /// us catching it, nor too small that it causes us to timeout requests that
@@ -147,7 +147,7 @@ struct Inner {
     is_firehose_preferred: EnvVarBoolean,
     #[envconfig(from = "GRAPH_GETH_ETH_CALL_ERRORS", default = "")]
     geth_eth_call_errors: String,
-    #[envconfig(from = "GRAPH_ETH_GET_LOGS_MAX_CONTRACTS", default = "2000")]
+    #[envconfig(from = "GRAPH_ETH_GET_LOGS_MAX_CONTRACTS", default = "1000")]
     get_logs_max_contracts: usize,
 
     // JSON-RPC specific.
@@ -159,7 +159,7 @@ struct Inner {
     max_event_only_range: BlockNumber,
     #[envconfig(from = "ETHEREUM_BLOCK_BATCH_SIZE", default = "10")]
     block_batch_size: usize,
-    #[envconfig(from = "GRAPH_ETHEREUM_MAX_BLOCK_RANGE_SIZE", default = "2000")]
+    #[envconfig(from = "GRAPH_ETHEREUM_MAX_BLOCK_RANGE_SIZE", default = "1000")]
     max_block_range_size: BlockNumber,
     #[envconfig(from = "GRAPH_ETHEREUM_JSON_RPC_TIMEOUT", default = "180")]
     json_rpc_timeout_in_secs: u64,
@@ -179,6 +179,6 @@ struct Inner {
         default = "100"
     )]
     target_triggers_per_block_range: u64,
-    #[envconfig(from = "GRAPH_ETHEREUM_GENESIS_BLOCK_NUMBER", default = "0")]
+    #[envconfig(from = "GRAPH_ETHEREUM_GENESIS_BLOCK_NUMBER", default = "1")]
     genesis_block_number: u64,
 }
