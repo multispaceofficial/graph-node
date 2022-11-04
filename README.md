@@ -5,7 +5,7 @@
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
-Graph Node is an open source Rust implementation that event sources the Ethereum blockchain to deterministically update a data store that can be queried via the GraphQL endpoint.
+Graph Node is an open source Rust implementation that event sources the Ethereum and Conflux blockchains to deterministically update a data store that can be queried via the GraphQL endpoint.
 
 For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
 
