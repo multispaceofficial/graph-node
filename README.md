@@ -50,6 +50,13 @@ cargo run -p graph-node --release -- \
   --postgres-url postgresql://USERNAME[:PASSWORD]@localhost:5432/graph-node \
   --ethereum-rpc NETWORK_NAME:[CAPABILITIES]:URL \
   --ipfs 127.0.0.1:5001
+
+Conflux CoreSpace Exapmple:
+
+cargo run -p graph-node --release -- \
+    --postgres-url postgres://postgres:PASSWORD@localhost:5432/confluxgraph \
+    --ethereum-rpc conflux:full,archive:https://fullcfx2eth.conflux123.xyz \
+    --ipfs 127.0.0.1:5001
 ```
 
 Try your OS username as `USERNAME` and `PASSWORD`. For details on setting
@@ -63,7 +70,7 @@ superusers are allowed to do that. To create them you need to connect as a
 superuser, which in many installations is the `postgres` user:
 
 ```bash
-    psql -q -X -U <SUPERUSER> graph-node <<EOF
+psql -q -X -U <SUPERUSER> graph-node <<EOF
 create extension pg_trgm;
 create extension pg_stat_statements;
 create extension btree_gist;
